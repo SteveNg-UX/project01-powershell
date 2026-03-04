@@ -1,0 +1,6 @@
+FIRSTNAME;LASTNAME;PATH;PASSWORD
+alice;aa;OU=USERS,OU=IT,OU=Service;123Soleil!
+bob;bb;OU=USERS,OU=IT,OU=Service;123Soleil!
+cloe;cc;OU=USERS,OU=RH,OU=Service;123Soleil!
+david;dd;OU=USERS,OU=DG,OU=Service;123Soleil!
+eric;ee;OU=USERS,OU=DG,OU=Service;123Soleil!
