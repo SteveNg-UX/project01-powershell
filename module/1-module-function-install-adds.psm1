@@ -7,6 +7,7 @@ function Install-ADDS{
     )
     New-NetIPAddress -InterfaceAlias Ethernet -AddressFamily IPv4 -PrefixLength 24 -IPAddress $IP_HOS-DefaultGateway $IP_ROUTER
     Set-DnsClientDohServerAddress -ServerAddress ${IP_ROUTER}
+    Add-WindowsFeature -Name "AD-Domain-Services", "DNS", "RSAT-AD-Tools", "RSAT-RemoteAccess", "GPMC" -IncludeAllSubFeature
     Import-Module ADDSDeployment
     Install-ADDSForest `
         -CreateDnsDelegation:$false `
