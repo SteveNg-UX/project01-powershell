@@ -1,12 +1,8 @@
 function Install-ADDS{
     param(
         [String]$DOMAINE_NAME,
-        [String]$IP_HOST,
-        [String]$IP_ROUTER,
         [String]$SAFE_PASSWORD
     )
-    New-NetIPAddress -InterfaceAlias Ethernet -AddressFamily IPv4 -PrefixLength 24 -IPAddress $IP_HOS-DefaultGateway $IP_ROUTER
-    Set-DnsClientDohServerAddress -ServerAddress ${IP_ROUTER}
     Add-WindowsFeature -Name "AD-Domain-Services", "DNS", "RSAT-AD-Tools", "RSAT-RemoteAccess", "GPMC" -IncludeAllSubFeature
     Import-Module ADDSDeployment
     Install-ADDSForest `
@@ -24,4 +20,4 @@ function Install-ADDS{
         -Force:$true
 }
 
-# Ex : Install-ADDS -DOMAINE_NAME "MonDomaine" -IP_HOST "192.168.1.20" -IP_ROUTER "192.168.1.20" -SAFE_PASSWORD "MyP@ssw0rd"
+# Ex : Install-ADDS -DOMAINE_NAME "MonDomaine" -SAFE_PASSWORD "MyP@ssw0rd"

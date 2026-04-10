@@ -1,12 +1,15 @@
 # importation function
+Import-Module ".\module\0-module-function-basic-config.psm1"
 Import-Module ".\module\1-module-function-install-adds.psm1"
 Import-Module ".\module\2-module-function-manage-fileshare.psm1"
 Import-Module ".\module\3-module-function-import_objet-ad.psm1"
 
 # variables
-$ENTREE_DOMAIN = Read-Host("votre domaine sans le '.local' a la fin")
+$ENTREE_NAMESERVER = Read-Host("nom du serveur")
 $ENTREE_IP_HOST = Read-Host("ip du serveur")
+$ENTREE_MASK_CIDR = Read-Host("mask cidr")
 $ENTREE_IP_ROUTER = Read-Host("ip de passerelle")
+$ENTREE_DOMAIN = Read-Host("votre domaine sans le '.local' a la fin")
 $ENTREE_SAFE_PASSWORD = Read-Host("ip de passerelle")
 $IMPORT_OU = ".\csv\OU.csv"
 $IMPORT_GRP = ".\csv\GROUPS.csv"
@@ -14,7 +17,8 @@ $IMPORT_USER = ".\csv\USERS.csv"
 $PATH_FILESHARE = "D:\partage"
 
 # using function
-Install-ADDS -DOMAINE_NAME $ENTREE_DOMAIN -IP_HOST $ENTREE_IP_HOST -IP_ROUTER $ENTREE_IP_ROUTER -SAFE_PASSWORD $ENTREE_SAFE_PASSWORD
+Config-Server -NAMESERVER $ENTREE_NAMESERVER -IP_HOST $ENTREE_IP_HOST -MASK_CIDR $ENTREE_MASK_CIDR -IP_ROUTER $ENTREE_IP_ROUTER
+Install-ADDS -DOMAINE_NAME $ENTREE_DOMAIN -SAFE_PASSWORD $ENTREE_SAFE_PASSWORD
 Import-BulkOU -DOMAIN_NAME $ENTREE_DOMAIN -PATH_CSV $IMPORT_OU
 Import-BulkGroup -DOMAIN_NAME $ENTREE_DOMAIN -PATH_CSV $IMPORT_GRP
 Import-BulkUser -DOMAIN_NAME $ENTREE_DOMAIN -PATH_CSV $IMPORT_USER
