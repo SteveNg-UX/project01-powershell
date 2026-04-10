@@ -1,7 +1,7 @@
 # import csv des OU
 function Import-BulkOU{
     param(
-        [String]$PATH_CSV
+        [String]$PATH_CSV,
         [String]$DOMAIN_NAME
     )
     $IMPORT_OU_CSV = Import-Csv -Delimiter ";" -Path $PATH_CSV

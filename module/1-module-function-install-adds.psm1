@@ -1,8 +1,8 @@
 function Install-ADDS{
     param(
-        [String]$DOMAINE_NAME
-        [String]$IP_HOST
-        [String]$IP_ROUTER
+        [String]$DOMAINE_NAME,
+        [String]$IP_HOST,
+        [String]$IP_ROUTER,
         [String]$SAFE_PASSWORD
     )
     New-NetIPAddress -InterfaceAlias Ethernet -AddressFamily IPv4 -PrefixLength 24 -IPAddress $IP_HOS-DefaultGateway $IP_ROUTER
