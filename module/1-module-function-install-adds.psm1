@@ -19,7 +19,7 @@ function Install-ADDS{
         -LogPath "C:\WINDOWS\NTDS" `
         -NoRebootOnCompletion:$false `
         -SysvolPath "C:\WINDOWS\SYSVOL" `
-        -SafeModeAdministratorPassword (ConvertTo-SecureString $SAFE_PASSWORD -AsPlainText -Force)
+        -SafeModeAdministratorPassword (ConvertTo-SecureString $SAFE_PASSWORD -AsPlainText -Force) `
         -Force:$true
 }
 
