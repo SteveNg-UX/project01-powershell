@@ -13,8 +13,8 @@ function Install-ADDS{
         -CreateDnsDelegation:$false `
         -DatabasePath "C:\WINDOWS\NTDS" `
         -DomainMode "Win2025" `
-        -DomainName "${DOMAINE_NAME.ToLower()}.local" `
-        -DomainNetbiosName "${DOMAINE_NAME.ToUpper()}" `
+        -DomainName "$(DOMAINE_NAME.ToLower()).local" `
+        -DomainNetbiosName "$DOMAINE_NAME.ToUpper()" `
         -ForestMode "Win2025" `
         -InstallDns:$true `
         -LogPath "C:\WINDOWS\NTDS" `
