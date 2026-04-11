@@ -1,8 +1,9 @@
 # importation modules de fonctions
-Import-Module ".\module\0-module-function-basic-config.psm1"
-Import-Module ".\module\1-module-function-install-adds.psm1"
-Import-Module ".\module\2-module-function-manage-fileshare.psm1"
-Import-Module ".\module\3-module-function-import_objet-ad.psm1"
+Set-Location -Path $PSScriptRoot
+Import-Module "$PSScriptRoot\module\0-module-function-basic-config.psm1"
+Import-Module "$PSScriptRoot\module\1-module-function-install-adds.psm1"
+Import-Module "$PSScriptRoot\module\2-module-function-manage-fileshare.psm1"
+Import-Module "$PSScriptRoot\module\3-module-function-import_objet-ad.psm1"
 
 # variables
 $ENTREE_NAMESERVER = Read-Host("nom du serveur")
