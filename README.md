@@ -1,7 +1,5 @@
 build-ad-organisation
 
-
-
 ## Etape 1 : Téléchargement
 ```Powershell
 # télécharger le fichier zip contenant le scripte
